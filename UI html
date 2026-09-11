@@ -56,21 +56,6 @@
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
   }
 
-  .logo-box {
-    width: 80px;
-    height: 80px;
-    background: var(--off);
-    border: 2px solid var(--border);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    font-size: 10px;
-    color: var(--muted);
-    text-align: center;
-    line-height: 1.3;
-    font-style: italic;
-  }
 
   .header-text h1 {
     font-family: var(--font-head);
@@ -362,20 +347,7 @@
     padding: 20px;
     background: var(--white);
   }
-  .speaker-card .spk-avatar {
-    width: 56px;
-    height: 56px;
-    background: var(--off);
-    border: 1px solid var(--border);
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 9px;
-    color: var(--muted);
-    font-style: italic;
-    text-align: center;
-  }
+
   .speaker-card h4 {
     font-size: 14px;
     font-weight: 700;
@@ -663,6 +635,145 @@
   }
   .award-box h4 { font-size: 15px; color: var(--srm-navy); margin-bottom: 6px; }
   .award-box p { font-size: 13px; color: var(--muted); }
+
+  /* ── SECTION IMAGES ── */
+  .section-img {
+    width: 100%;
+    max-height: 340px;
+    object-fit: cover;
+    border: 1px solid var(--border);
+    margin-top: 24px;
+    margin-bottom: 8px;
+  }
+  .campus-banner {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+  }
+  .img-caption {
+    font-size: 11px;
+    color: var(--muted);
+    font-style: italic;
+    margin-bottom: 20px;
+  }
+  .about-img-col {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .about-img-col img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border: 1px solid var(--border);
+  }
+
+  /* ── FORMS (Firebase) ── */
+  .form-section {
+    margin-top: 36px;
+    border-top: 2px solid var(--border);
+    padding-top: 36px;
+  }
+  .form-section h3 {
+    font-family: var(--font-head);
+    font-size: 20px;
+    color: var(--srm-navy);
+    margin-bottom: 6px;
+  }
+  .form-section > p {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 24px;
+  }
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  @media (max-width: 700px) {
+    .form-grid { grid-template-columns: 1fr; }
+  }
+  .form-grid .full-width {
+    grid-column: 1 / -1;
+  }
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  .form-group label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--srm-navy);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    font-family: var(--font-body);
+    font-size: 14px;
+    padding: 10px 14px;
+    border: 1px solid var(--border);
+    background: var(--white);
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--srm-navy);
+    box-shadow: 0 0 0 3px rgba(0, 52, 120, 0.08);
+  }
+  .form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+  .btn-submit {
+    display: inline-block;
+    padding: 12px 36px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    background: var(--srm-navy);
+    color: var(--white);
+    border: 2px solid var(--srm-navy);
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    margin-top: 20px;
+  }
+  .btn-submit:hover {
+    background: #002a60;
+  }
+  .btn-submit:active {
+    transform: scale(0.98);
+  }
+  .btn-submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  .form-msg {
+    margin-top: 16px;
+    padding: 12px 18px;
+    font-size: 13.5px;
+    font-weight: 600;
+    display: none;
+  }
+  .form-msg.success {
+    display: block;
+    background: #e6f9e6;
+    border-left: 4px solid #2e8b57;
+    color: #1a5c36;
+  }
+  .form-msg.error {
+    display: block;
+    background: #fde8e8;
+    border-left: 4px solid var(--srm-red);
+    color: var(--srm-red);
+  }
 </style>
 </head>
 <body>
@@ -717,7 +828,7 @@
       </div>
       <div class="meta-item">
         <div class="label">Venue</div>
-        <div class="value">SRM TRIC, Tamil Nadu</div>
+        <div class="value">SRMIST TRICHY, Tamil Nadu</div>
       </div>
       <div class="meta-item">
         <div class="label">Publisher</div>
@@ -756,6 +867,7 @@
       <div class="section-label">Overview</div>
       <div class="section-title">About the Conference</div>
       <div class="section-rule"></div>
+      <img src="campus-front.png" alt="SRM Campus Front View" class="section-img" style="margin-top:0; margin-bottom:24px;">
       <div class="two-col">
         <div class="text-content">
           <p>The conference is an international platform for researchers, academicians, industry professionals, research scholars and students to exchange knowledge and present innovative research in emerging areas of Computer Science and Intelligent Systems, focused on AI, Machine Learning, Generative AI, Data Science, Cybersecurity, Cloud and Edge Computing, IoT, Robotics, Quantum Computing, Software Engineering and next-generation computing paradigms.</p>
@@ -779,4 +891,1035 @@
   <!-- PAST CONFERENCE -->
   <div class="section">
     <div class="section-label">Previous Edition</div>
-    <div class="sec
+    <div class="section-title">Past Conference</div>
+    <div class="section-rule"></div>
+    <div class="pub-card">
+      <h4>International Virtual Conference on Machine Learning Applications in Applied Sciences and Mathematics (IVCMASM)</h4>
+      <p><strong>AIP Proceedings</strong> · Volume 2802, Issue 1 &nbsp;·&nbsp; 30–31 March 2022</p>
+      <p>Organised by Dr. S. Kanaga Suba Raja, in collaboration with AIP Publishers.</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- ══════════ PAGE: ABOUT ══════════ -->
+<div class="page" id="page-about">
+
+  <div class="section">
+    <div class="section-label">Institution</div>
+    <div class="section-title">About SRM Institute of Science and Technology</div>
+    <div class="section-rule"></div>
+    <div class="text-content">
+      <p>SRM Institute of Science and Technology is one of India's leading multidisciplinary higher education institutions, recognized for excellence in teaching, research, innovation, and industry engagement. Established with a vision to impart quality education and foster technological advancement, SRMIST offers comprehensive programmes across Engineering, Management, Medicine, Science, Law, Agricultural Sciences, and Allied Health Sciences.</p>
+      <p>In NIRF 2025, SRMIST achieved the <strong>22nd rank Overall</strong> and <strong>11th among universities</strong> in India, reflecting its commitment to quality higher education and research excellence.</p>
+      <p>With campuses in Kattankulathur (Chennai), Ramapuram, Vadapalani, Tiruchirappalli, Modinagar, Sonepat, Amaravati, and Gangtok, SRMIST has established itself as a nationally recognized centre of excellence. The university attracts students from across India and many countries, creating a vibrant multicultural environment.</p>
+    </div>
+    <img src="campus-top-view.png" alt="SRM Tiruchirappalli Campus Aerial View" class="section-img">
+    <p class="img-caption">Aerial view of SRM Institute of Science and Technology, Tiruchirappalli Campus</p>
+  </div>
+
+  <div class="section-alt">
+    <div class="section">
+      <div class="section-label">Department</div>
+      <div class="section-title">Department of Computer Science and Engineering</div>
+      <div class="section-rule"></div>
+      <div class="two-col">
+        <div class="text-content">
+          <p>The Department of CSE at SRMIST Tiruchirappalli was established in 2021 with the vision of imparting quality education and fostering innovation in computing. It promotes research in Artificial Intelligence, Machine Learning, Data Science, Cyber Security, Cloud Computing, and the Internet of Things.</p>
+          <p>The department collaborates with leading organizations through internships, workshops, expert talks, and industry-driven projects, bridging academia and industry effectively.</p>
+          <div class="about-img-col" style="margin-top:16px;">
+            <img src="class-view.png" alt="Classroom and Lab Facilities">
+            <img src="campus-student.png" alt="Students at SRM Campus">
+          </div>
+        </div>
+        <div>
+          <div class="card" style="margin-bottom: 16px;">
+            <h3>Vision</h3>
+            <p>To provide quality education in Computer Science and Engineering and produce highly competent engineers who can serve society on a global level.</p>
+          </div>
+          <div class="card">
+            <h3>Mission</h3>
+            <p>To provide industry-oriented training that prepares graduates for real-world challenges, while emphasising ethical conduct and social responsibility.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Conference Scope &amp; Objective</div>
+    <div class="section-title">Objective and Scope of the Conference</div>
+    <div class="section-rule"></div>
+    <div class="text-content">
+      <p><strong>Objective of the Conference:</strong> ETCSIS 2027 aims to provide an international platform for researchers, academicians, industry professionals, research scholars and students to exchange knowledge and present innovative research in Computer Science and Intelligent Systems.</p>
+      <p><strong>Conference Scope:</strong> The conference scope covers AI &amp; Machine Learning, Generative AI, Data Science, Cybersecurity, Cloud and Edge Computing, IoT, Software Engineering, Computer Networks, Blockchain, Human-Centered Computing, Quantum Computing, Robotics, Autonomous Systems and Sustainable Computing — aiming to develop secure, intelligent, scalable and sustainable solutions for next-generation computing.</p>
+    </div>
+
+    <div class="notice" style="margin-top: 28px;">
+      <strong>International Advisory Board:</strong> SRM's IAB, established in 2003, consists of 50+ distinguished deans, directors, and professors from Harvard Business School, MIT, Stanford, LSE, UC Berkeley, Cambridge, NUS, and many more of the world's leading institutions. View the <a href="#" class="inline-link" onclick="showPage('committee',document.querySelectorAll('nav a')[4])">International Advisory Board members</a> on the Committee page.
+    </div>
+  </div>
+
+</div>
+
+<!-- ══════════ PAGE: TRACKS ══════════ -->
+<div class="page" id="page-tracks">
+  <div class="section">
+    <div class="section-label">Call for Papers</div>
+    <div class="section-title">Conference Tracks</div>
+    <div class="section-rule"></div>
+    <p style="color:var(--muted);font-size:14px;margin-bottom:28px;">Authors are invited to submit original, unpublished work in one of the following tracks. Papers must not be under review elsewhere simultaneously.</p>
+
+    <div class="tracks-grid">
+
+      <div class="track-card">
+        <div class="track-num">TRACK 1</div>
+        <h4>Artificial Intelligence and Machine Learning</h4>
+        <ul>
+          <li>AI</li>
+          <li>Machine Learning</li>
+          <li>Deep Learning</li>
+          <li>Generative AI</li>
+          <li>Explainable AI</li>
+          <li>Responsible &amp; Trustworthy AI</li>
+          <li>Reinforcement Learning</li>
+          <li>Computer Vision</li>
+          <li>NLP</li>
+          <li>Multimodal AI</li>
+        </ul>
+      </div>
+
+      <div class="track-card">
+        <div class="track-num">TRACK 2</div>
+        <h4>Data Science and Big Data Analytics</h4>
+        <ul>
+          <li>Data Science</li>
+          <li>Big Data Analytics</li>
+          <li>Data Mining</li>
+          <li>Predictive Analytics</li>
+          <li>Business Intelligence</li>
+          <li>Data Visualization</li>
+          <li>Knowledge Discovery</li>
+          <li>Recommender Systems</li>
+          <li>Statistical Learning</li>
+          <li>Data Engineering</li>
+        </ul>
+      </div>
+
+      <div class="track-card">
+        <div class="track-num">TRACK 3</div>
+        <h4>Cybersecurity and Privacy</h4>
+        <ul>
+          <li>Cybersecurity</li>
+          <li>Network Security</li>
+          <li>Information Security</li>
+          <li>Cloud Security</li>
+          <li>IoT Security</li>
+          <li>Blockchain Security</li>
+          <li>Privacy-Preserving Computing</li>
+          <li>Digital Forensics</li>
+          <li>Intrusion Detection</li>
+          <li>Cyber Threat Intelligence</li>
+        </ul>
+      </div>
+
+      <div class="track-card">
+        <div class="track-num">TRACK 4</div>
+        <h4>Cloud, Edge and Distributed Computing</h4>
+        <ul>
+          <li>Cloud Computing</li>
+          <li>Edge Computing</li>
+          <li>Fog Computing</li>
+          <li>Distributed Systems</li>
+          <li>Serverless Computing</li>
+          <li>Containerization</li>
+          <li>Microservices</li>
+          <li>Cloud-Native Applications</li>
+          <li>High-Performance Computing</li>
+          <li>Resource Optimization</li>
+        </ul>
+      </div>
+
+      <div class="track-card">
+        <div class="track-num">TRACK 5</div>
+        <h4>Internet of Things and Intelligent Systems</h4>
+        <ul>
+          <li>IoT</li>
+          <li>Industrial IoT</li>
+          <li>Smart Sensors</li>
+          <li>Embedded Systems</li>
+          <li>Edge AI</li>
+          <li>Smart Homes</li>
+          <li>Smart Cities</li>
+          <li>Intelligent Transportation</li>
+          <li>Real-Time Systems</li>
+          <li>IoT Applications</li>
+        </ul>
+      </div>
+
+      <div class="track-card">
+        <div class="track-num">TRACK 6</div>
+        <h4>Software Engineering and Emerging Software Technologies</h4>
+        <ul>
+          <li>Software Engineering</li>
+          <li>Software Architecture</li>
+          <li>DevOps and DevSecOps</li>
+          <li>Software Testing</li>
+          <li>Software Quality</li>
+          <li>Agile Development</li>
+          <li>Requirements Engineering</li>
+          <li>Low-Code/No-Code Development</li>
+          <li>Software Maintenance</li>
+          <li>AI-Assisted Software Engineering</li>
+        </ul>
+      </div>
+
+      <div class="track-card">
+        <div class="track-num">TRACK 7</div>
+        <h4>Computer Networks and Next-Generation Communication</h4>
+        <ul>
+          <li>Computer Networks</li>
+          <li>5G and 6G Networks</li>
+          <li>Wireless Networks</li>
+          <li>Software-Defined Networking</li>
+          <li>Network Function Virtualization</li>
+          <li>Wireless Sensor Networks</li>
+          <li>Network Intelligence</li>
+          <li>Vehicular Networks</li>
+          <li>Next-Generation Internet</li>
+          <li>Network Optimization</li>
+        </ul>
+      </div>
+
+      <div class="track-card">
+        <div class="track-num">TRACK 8</div>
+        <h4>Blockchain, Web3 and Decentralized Computing</h4>
+        <ul>
+          <li>Blockchain Technology</li>
+          <li>Smart Contracts</li>
+          <li>Decentralized Applications</li>
+          <li>Web3</li>
+          <li>Distributed Ledger Technology</li>
+          <li>Blockchain for Healthcare</li>
+          <li>Blockchain for Education</li>
+          <li>Blockchain for Supply Chain</li>
+          <li>Decentralized Identity</li>
+          <li>Secure Transactions</li>
+        </ul>
+      </div>
+
+      <div class="track-card">
+        <div class="track-num">TRACK 9</div>
+        <h4>Human-Centered Computing and Intelligent Applications</h4>
+        <ul>
+          <li>HCI</li>
+          <li>Human–AI Interaction</li>
+          <li>Affective Computing</li>
+          <li>AR, VR, XR</li>
+          <li>Assistive Technologies</li>
+          <li>Multimedia Computing</li>
+          <li>Speech and Gesture Recognition</li>
+          <li>UX and Usability</li>
+        </ul>
+      </div>
+
+      <div class="track-card">
+        <div class="track-num">TRACK 10</div>
+        <h4>Quantum Computing and Future Computing</h4>
+        <ul>
+          <li>Quantum Computing</li>
+          <li>Quantum Machine Learning</li>
+          <li>Quantum Algorithms</li>
+          <li>Quantum Cryptography</li>
+          <li>Quantum Communication</li>
+          <li>Neuromorphic Computing</li>
+          <li>Cognitive Computing</li>
+          <li>Autonomous Computing</li>
+          <li>Future Computing Architectures</li>
+          <li>Emerging Computing Paradigms</li>
+        </ul>
+      </div>
+
+      <div class="track-card">
+        <div class="track-num">TRACK 11</div>
+        <h4>Robotics, Autonomous Systems and Computer Vision</h4>
+        <ul>
+          <li>Robotics</li>
+          <li>Autonomous Systems</li>
+          <li>Intelligent Robotics</li>
+          <li>Robot Perception</li>
+          <li>Computer Vision</li>
+          <li>Image Processing</li>
+          <li>Pattern Recognition</li>
+          <li>Drone and UAV Computing</li>
+          <li>Human–Robot Interaction</li>
+          <li>Autonomous Navigation</li>
+        </ul>
+      </div>
+
+      <div class="track-card">
+        <div class="track-num">TRACK 12</div>
+        <h4>Sustainable and Green Computing</h4>
+        <ul>
+          <li>Green Computing</li>
+          <li>Sustainable Computing</li>
+          <li>Energy-Efficient Computing</li>
+          <li>Green Data Centers</li>
+          <li>Energy-Aware Cloud Computing</li>
+          <li>Sustainable AI</li>
+          <li>Carbon-Aware Computing</li>
+          <li>Smart Energy Systems</li>
+          <li>Computing for Sustainable Development</li>
+          <li>AI for Environmental Applications</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ PAGE: SPEAKERS ══════════ -->
+<div class="page" id="page-speakers">
+  <div class="section">
+    <div class="section-label">Keynote Speakers</div>
+    <div class="section-title">Distinguished Speakers</div>
+    <div class="section-rule"></div>
+
+    <div class="speakers-grid">
+
+      <div class="speaker-card">
+        <h4>Dr. Junaid Qadir</h4>
+        <div class="spk-org">Qatar University, Qatar<br>College of Engineering</div>
+        <span class="spk-tag">IEEE Distinguished Lecturer</span>
+        <div class="spk-expertise">Generative AI for Education · Human-Centered AI · Engineering Education</div>
+      </div>
+
+      <div class="speaker-card">
+        <h4>Prof. Kostas Karpouzis</h4>
+        <div class="spk-org">Panteion University of Social and Political Sciences, Greece</div>
+        <span class="spk-tag">IEEE Distinguished Lecturer</span>
+        <div class="spk-expertise">AI-Enhanced Education · Gamification · Human-Computer Interaction · Ethics in AI</div>
+      </div>
+
+      <div class="speaker-card">
+        <h4>Dr. Huihui Wang</h4>
+        <div class="spk-org">Northeastern University, USA<br>College of Engineering</div>
+        <span class="spk-tag">IEEE Distinguished Lecturer</span>
+        <div class="spk-expertise">AI Education · Neurosymbolic AI · Faculty Development · Intelligent Learning Systems</div>
+      </div>
+
+      <div class="speaker-card">
+        <h4>Dr. Sasha Nikolic</h4>
+        <div class="spk-org">University of Wollongong, Australia<br>School of ECTE Engineering</div>
+        <span class="spk-tag">IEEE Distinguished Lecturer</span>
+        <div class="spk-expertise">Engineering Education · Future Learning Technologies · AI-Enabled Learning</div>
+      </div>
+
+      <div class="speaker-card">
+        <h4>Dr. Helen K. Joy</h4>
+        <div class="spk-org">CHRIST (Deemed to be University), India<br>Department of Computer Science</div>
+        <span class="spk-tag">IEEE Distinguished Lecturer</span>
+        <div class="spk-expertise">Educational Technologies · Engineering Education · Artificial Intelligence in Learning</div>
+      </div>
+
+      <div class="speaker-card">
+        <h4>Prof. Chee-Kit Looi</h4>
+        <div class="spk-org">The Education University of Hong Kong</div>
+        <span class="spk-tag">Professor</span>
+        <div class="spk-expertise">AI in Education · Learning Sciences · Mobile Learning · Educational Innovation</div>
+      </div>
+
+      <div class="speaker-card">
+        <h4>Prof. Ashok Goel</h4>
+        <div class="spk-org">Georgia Institute of Technology, USA<br>School of Interactive Computing</div>
+        <span class="spk-tag">Professor</span>
+        <div class="spk-expertise">AI Tutors · Human-Centered AI · Educational Innovation · Cognitive Systems</div>
+      </div>
+
+      <div class="speaker-card">
+        <h4>Prof. Osvaldo Gervasi</h4>
+        <div class="spk-org">University of Perugia, Italy<br>Dept. of Mathematics and Computer Science</div>
+        <span class="spk-tag">Professor</span>
+        <div class="spk-expertise">Scientific Computing · Computational Mathematics · AI Applications</div>
+      </div>
+
+      <div class="speaker-card">
+        <h4>Prof. Jiankun Hu</h4>
+        <div class="spk-org">University of New South Wales, Australia<br>School of Engineering &amp; IT</div>
+        <span class="spk-tag">Professor</span>
+        <div class="spk-expertise">Artificial Intelligence · Machine Learning · Cyber Security · Intelligent Systems</div>
+      </div>
+
+      <div class="speaker-card">
+        <h4>Prof. George Ghinea</h4>
+        <div class="spk-org">Brunel University London, United Kingdom<br>Department of Computer Science</div>
+        <span class="spk-tag">Professor</span>
+        <div class="spk-expertise">Intelligent Systems · Human-Computer Interaction · Multimedia Computing · Educational Technologies</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ PAGE: COMMITTEE ══════════ -->
+<div class="page" id="page-committee">
+  <div class="section">
+    <div class="section-label">Organisation</div>
+    <div class="section-title">Organising Committee</div>
+    <div class="section-rule"></div>
+
+    <div class="cmte-section">
+      <div class="cmte-title">Vice Patron</div>
+      <ul class="cmte-list">
+        <li>Dr. T. R. Paarivendhar <span>Founder, SRM Group of Educational Institutions</span></li>
+        <li>Dr. R. Shivakumar <span>Chairman, SRM Group (Ramapuram &amp; Trichy Campus)</span></li>
+        <li>Mr. S. Niranjan <span>Co-Chairman, SRM Group (Ramapuram &amp; Trichy Campus)</span></li>
+      </ul>
+    </div>
+
+    <div class="cmte-section">
+      <div class="cmte-title">Chief Patron</div>
+      <ul class="cmte-list">
+        <li>Dr. Md. Sameeruddin Khan <span>Pro Vice-Chancellor, SRM Group, Trichy Campus</span></li>
+        <li>Dr. N. Malmurugan <span>Director, SRM Group of Educational Institutions, Tiruchirappalli Campus</span></li>
+      </ul>
+    </div>
+
+    <div class="cmte-section">
+      <div class="cmte-title">Patron</div>
+      <ul class="cmte-list">
+        <li>Dr. R. Balasubramaniam <span>Dean in-charge, Faculty of Engineering and Technology, SRMIST Tiruchirappalli</span></li>
+      </ul>
+    </div>
+
+    <div class="cmte-section">
+      <div class="cmte-title">Conference Chair</div>
+      <ul class="cmte-list">
+        <li>Dr. S. Kanaga Suba Raja <span>Professor and Head, Dept. of CSE, SRMIST Tiruchirappalli</span></li>
+      </ul>
+    </div>
+
+    <div class="cmte-section">
+      <div class="cmte-title">Technical Chair</div>
+      <ul class="cmte-list">
+        <li>Dr. S. Kanaga Suba Raja <span>B.E., M.E., Ph.D. · Professor &amp; HoD</span></li>
+        <li>Dr. P. Senthilkumar <span>B.E., M.E., Ph.D. · Associate Professor</span></li>
+        <li>Dr. K. Sathish Kumar <span>B.E., M.E., Ph.D. · Associate Professor</span></li>
+        <li>Dr. R. Siva Subramanian <span>B.Tech., M.Tech., Ph.D. · Associate Professor</span></li>
+        <li>Dr. Rahul Shrivastava <span>Ph.D., M.Tech., M.Tech., B.E. · Associate Professor</span></li>
+      </ul>
+    </div>
+
+    <div class="cmte-section">
+      <div class="cmte-title">Conference Treasurers</div>
+      <ul class="cmte-list">
+        <li>Mr. J. Paul Rajasingh <span>B.E., M.E., (Ph.D.) · Assistant Professor</span></li>
+        <li>Dr. K. R. Saranya <span>B.Tech., M.E., Ph.D. · Assistant Professor</span></li>
+        <li>Dr. S. Sivakumar <span>B.E., M.E., Ph.D. · Assistant Professor</span></li>
+        <li>Dr. L. Josephine Usha <span>M.E., Ph.D. · Assistant Professor</span></li>
+        <li>Ms. R. Sharanya <span>B.E., M.E., (Ph.D.) · Assistant Professor</span></li>
+        <li>Dr. P. Shanmuga Sundari <span>M.E., Ph.D. · Assistant Professor</span></li>
+        <li>Dr. N. Saranya <span>B.E., M.E., Ph.D. · Assistant Professor</span></li>
+      </ul>
+    </div>
+
+    <div class="cmte-section">
+      <div class="cmte-title">Committee Members</div>
+      <ul class="cmte-list">
+        <li>Dr. V. Mani <span>B.Tech., M.E., Ph.D. · Assistant Professor</span></li>
+        <li>Dr. S. Rahmath Nisha <span>B.E., M.Tech., Ph.D. · Assistant Professor</span></li>
+        <li>Dr. S. Sakthivel <span>B.E., M.Tech., Ph.D. · Assistant Professor</span></li>
+        <li>Dr. Ajeyprasaath K B <span>B.E., M.E., Ph.D. · Assistant Professor</span></li>
+        <li>Mr. Nareshkumar R <span>B.E., M.E., (Ph.D.) · Assistant Professor</span></li>
+        <li>Dr. M. Muthukumar <span>B.E., M.E., Ph.D. · Assistant Professor</span></li>
+        <li>Dr. J. Jegan <span>B.Tech., M.E., Ph.D. · Assistant Professor</span></li>
+        <li>Dr. P. Hariharan <span>B.E., M.S., Ph.D. · Assistant Professor</span></li>
+        <li>Dr. S. Shargunam <span>B.Tech., M.E., Ph.D. · Assistant Professor</span></li>
+        <li>Dr. Deena Rose <span>B.E., M.E., Ph.D. · Assistant Professor</span></li>
+        <li>Dr. Dhanasekaran K <span>B.E., M.E., Ph.D. · Associate Professor</span></li>
+      </ul>
+    </div>
+
+    <div class="cmte-section">
+      <div class="cmte-title">Student Organisers</div>
+      <ul class="cmte-list">
+        <li>Yuvasri N <span>III CSE A</span></li>
+        <li>Aishwarya C <span>III CSE A</span></li>
+        <li>Selva P <span>III CSE A</span></li>
+        <li>Niranjani A <span>IV CSE B</span></li>
+        <li>Devadharshni S <span>III CSE B</span></li>
+        <li>Keerthanaa Sri M <span>III CSE B</span></li>
+        <li>Sriram M <span>III CSE B</span></li>
+        <li>Payal Ajay <span>III CSE D</span></li>
+        <li>Harshvardhan Singh <span>III CSE D</span></li>
+        <li>Vansh Pradhan <span>IV CSE D</span></li>
+        <li>Ayush Thakur <span>III CSE D</span></li>
+        <li>Devulapally Vyshnavi <span>III CSE E</span></li>
+        <li>Leenasri S Y <span>III CSE E</span></li>
+        <li>Isai Mani C <span>III CSE E</span></li>
+        <li>V Charan <span>III CSE F</span></li>
+        <li>Pidaparthi Vishnuvardhan Reddy <span>IV CSE F</span></li>
+        <li>Divyaanand Chandrasekaran <span>IV CSE F</span></li>
+        <li>Sivaprasad R <span>II CSE H</span></li>
+        <li>S Hemavarshini <span>II CSE H</span></li>
+        <li>Sivadharshini P <span>II CSE H</span></li>
+        <li>Roshida R <span>II CSE H</span></li>
+      </ul>
+    </div>
+
+    <!-- International Advisory Board -->
+    <div class="cmte-section" style="margin-top:48px;">
+      <div class="section-label">Advisory</div>
+      <div class="section-title">International Advisory Board</div>
+      <div class="section-rule"></div>
+      <div class="advisory-cols">
+        <div class="adv-item">Dr. Jiankun Hu <span>The University of New South Wales, Australia</span></div>
+        <div class="adv-item">Dr. Osvaldo Gervasi <span>University of Perugia, Italy</span></div>
+        <div class="adv-item">Dr. Tunde Olabiyisi <span>Ladoke Akintola University of Technology, Nigeria</span></div>
+        <div class="adv-item">Dr. George Ghinea <span>Brunel University, United Kingdom</span></div>
+        <div class="adv-item">Dr. Rahim Tafazolli <span>University of Surrey, United Kingdom</span></div>
+        <div class="adv-item">Dr. Chua Sook Ling @ Landa Chua <span>Multimedia University, Malaysia</span></div>
+        <div class="adv-item">Dr. Atma Sahu <span>Coppin State University, USA</span></div>
+        <div class="adv-item">Dr. Pao-Ann Hsiung <span>National Chung Cheng University, Taiwan</span></div>
+        <div class="adv-item">Dr. Hadi Susanto <span>Khalifa University, UAE</span></div>
+        <div class="adv-item">Dr. Girijesh Prasad <span>Ulster University, United Kingdom</span></div>
+        <div class="adv-item">Dr. Kawal Sawhney <span>University of Oxford, United Kingdom</span></div>
+        <div class="adv-item">Dr. Zhenlu Cui <span>Fayetteville State University, USA</span></div>
+        <div class="adv-item">Dr. Stefano Mariani <span>University of Milan, Italy</span></div>
+      </div>
+    </div>
+
+    <!-- National Advisory Board -->
+    <div style="margin-top:48px;">
+      <div class="section-label">Advisory</div>
+      <div class="section-title">National Advisory Board</div>
+      <div class="section-rule"></div>
+      <div class="advisory-cols">
+        <div class="adv-item">Dr. S. Thamarai Selvi <span>Thiruvalluvar University, Vellore</span></div>
+        <div class="adv-item">Dr. P. Yogesh <span>Anna University, Chennai</span></div>
+        <div class="adv-item">Dr. B. Srinivasan <span>Anna University, Chennai</span></div>
+        <div class="adv-item">Dr. R. N. Kulkarni <span>Ballari Institute of Technology, Ballari</span></div>
+        <div class="adv-item">Dr. A. Amuthan <span>Puducherry Technological University</span></div>
+        <div class="adv-item">Dr. S. Mary Saira Bhanu <span>NIT, Tiruchirappalli</span></div>
+        <div class="adv-item">Dr. R. Rajesh <span>Central University of Kerala</span></div>
+        <div class="adv-item">Dr. R. Baskaran <span>Anna University, Chennai</span></div>
+        <div class="adv-item">Dr. PJA Alphonse <span>NIT, Tiruchirappalli</span></div>
+        <div class="adv-item">Dr. R. S. Bhuvaneswaran <span>Anna University, Chennai</span></div>
+        <div class="adv-item">Dr. R. Dhanalakshmi <span>IIIT, Tiruchirappalli</span></div>
+        <div class="adv-item">Dr. R. Bala venkata Subramanyam <span>NIT, Warangal</span></div>
+        <div class="adv-item">Dr. Pandiri Venkatesh <span>IIITDM Kancheepuram, Chennai</span></div>
+        <div class="adv-item">Dr. C. Valliamma <span>Anna University, Chennai</span></div>
+        <div class="adv-item">Dr. Ponsy R. K. Sathiyabama <span>Anna University, Chennai</span></div>
+        <div class="adv-item">Dr. V. Akila <span>Puducherry Technological University</span></div>
+        <div class="adv-item">Dr. S. Janakiraman <span>Pondicherry University</span></div>
+        <div class="adv-item">Dr. J. Arul Valan <span>NIT, Nagaland</span></div>
+        <div class="adv-item">Dr. K. Kathiravan <span>SRM Group, Ramapuram Campus, Chennai</span></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════ PAGE: SCHEDULE ══════════ -->
+<div class="page" id="page-schedule">
+  <div class="section">
+    <div class="section-label">Programme</div>
+    <div class="section-title">Conference Schedule</div>
+    <div class="section-rule"></div>
+    <p style="color:var(--muted);font-size:14px;margin-bottom:28px;">Presentation Time: <strong>10 Minutes</strong> · Format: <strong>PowerPoint Presentation (PPT)</strong> · Venue: SRM TRICHY, Tamil Nadu</p>
+
+    <div class="schedule-day">
+      <div class="day-header">Day 1 — 15th April 2027</div>
+
+      <div class="schedule-row">
+        <div class="sch-time">09:30 – 10:00</div>
+        <div class="sch-event">Inauguration Ceremony</div>
+      </div>
+      <div class="schedule-row">
+        <div class="sch-time">10:00 – 10:45</div>
+        <div class="sch-event">Keynote Seminar</div>
+      </div>
+      <div class="schedule-row sch-break">
+        <div class="sch-time">10:45 – 11:00</div>
+        <div class="sch-event">Session Break</div>
+      </div>
+      <div class="schedule-row">
+        <div class="sch-time">11:00 – 01:00</div>
+        <div class="sch-event">Technical Presentation I — Parallel 06 Sessions</div>
+      </div>
+      <div class="schedule-row sch-break">
+        <div class="sch-time">01:00 – 01:40</div>
+        <div class="sch-event">Lunch Break</div>
+      </div>
+      <div class="schedule-row">
+        <div class="sch-time">01:40 – 03:00</div>
+        <div class="sch-event">Technical Presentation II — Parallel 06 Sessions</div>
+      </div>
+      <div class="schedule-row sch-break">
+        <div class="sch-time">03:00 – 03:10</div>
+        <div class="sch-event">Tea Break</div>
+      </div>
+      <div class="schedule-row">
+        <div class="sch-time">03:10 – 04:00</div>
+        <div class="sch-event">Technical Presentation III — Parallel 06 Sessions</div>
+      </div>
+      <div class="schedule-row sch-break">
+        <div class="sch-time">04:00</div>
+        <div class="sch-event">First Day Technical Sessions Closed</div>
+      </div>
+    </div>
+
+    <div class="schedule-day">
+      <div class="day-header">Day 2 — 16th April 2027</div>
+
+      <div class="schedule-row">
+        <div class="sch-time">09:30 – 10:10</div>
+        <div class="sch-event">Keynote Seminar</div>
+      </div>
+      <div class="schedule-row sch-break">
+        <div class="sch-time">10:10 – 10:20</div>
+        <div class="sch-event">Session Break</div>
+      </div>
+      <div class="schedule-row">
+        <div class="sch-time">10:20 – 11:30</div>
+        <div class="sch-event">Technical Presentation IV — Parallel 06 Sessions</div>
+      </div>
+      <div class="schedule-row sch-break">
+        <div class="sch-time">11:30 – 11:40</div>
+        <div class="sch-event">Tea Break</div>
+      </div>
+      <div class="schedule-row">
+        <div class="sch-time">11:40 – 01:00</div>
+        <div class="sch-event">Technical Presentation V — Parallel 06 Sessions</div>
+      </div>
+      <div class="schedule-row sch-break">
+        <div class="sch-time">01:00 – 01:40</div>
+        <div class="sch-event">Lunch Break</div>
+      </div>
+      <div class="schedule-row">
+        <div class="sch-time">01:40 – 03:00</div>
+        <div class="sch-event">Technical Presentation VI — Parallel 06 Sessions</div>
+      </div>
+      <div class="schedule-row sch-break">
+        <div class="sch-time">03:00 – 03:10</div>
+        <div class="sch-event">Tea Break</div>
+      </div>
+      <div class="schedule-row">
+        <div class="sch-time">03:10 – 04:10</div>
+        <div class="sch-event">Technical Presentation VII — Parallel 06 Sessions</div>
+      </div>
+      <div class="schedule-row">
+        <div class="sch-time">04:10 – 04:40</div>
+        <div class="sch-event"><strong>Valedictory Function &amp; Best Paper Awards</strong></div>
+      </div>
+      <div class="schedule-row sch-break">
+        <div class="sch-time">04:40</div>
+        <div class="sch-event">Second Day Technical Sessions Closed</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════ PAGE: SUBMISSION ══════════ -->
+<div class="page" id="page-submission">
+  <div class="section">
+    <div class="section-label">Authors</div>
+    <div class="section-title">Paper Submission</div>
+    <div class="section-rule"></div>
+
+    <div class="two-col" style="margin-bottom:36px;">
+      <div>
+        <div class="card" style="margin-bottom:16px;">
+          <h3>Paper Length</h3>
+          <p><strong>Short Papers:</strong> 9 to 11 pages<br><strong>Long Papers:</strong> 12 to 15 pages</p>
+          <p style="margin-top:8px;">Template: Formatted according to the scholarly publisher format (template attached on the website).</p>
+        </div>
+        <div class="card">
+          <h3>Submission Platform</h3>
+          <p>All submissions are handled through the <strong>EasyChair Conference Management System</strong>. Papers must be original and unpublished, and must not be under review by any other conference or journal.</p>
+          <p style="margin-top:8px;"><a href="https://srm-hcis-stlasm.netlify.app/" class="inline-link" target="_blank">Coming soon →</a></p>
+        </div>
+      </div>
+      <div>
+        <div class="section-label" style="margin-bottom:8px;">Review Process</div>
+        <ol class="process-steps">
+          <li>
+            <div>
+              <strong>Scope Check</strong>
+              <p>Manuscripts are evaluated for alignment with the conference scope and themes.</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Plagiarism Screening</strong>
+              <p>Screened submissions undergo Turnitin similarity check.</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Peer Review</strong>
+              <p>Qualifying papers are reviewed by three independent referees.</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Consensus Decision</strong>
+              <p>Acceptance requires consensus of all three reviewers; each reviewer handles at most three manuscripts.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="award-box">
+      <h4>Best Paper Award</h4>
+      <p>One Best Paper will be selected from each track based on the quality and impact of the research. Winners will be announced at the Valedictory Function on 16th April 2027.</p>
+    </div>
+
+    <div class="pub-card">
+      <h4>Publication &amp; Indexing</h4>
+      <p>Conference proceedings are proposed for publication through a recognized scholarly publisher, subject to formal publisher approval. The final publisher, proceedings title, and DOI/ISBN details will be confirmed after formal approval.</p>
+      <p style="margin-top:6px;">Reference: Past proceedings published as <strong>AIP Volume 2802, Issue 1</strong> (IVCMASM 2022).</p>
+    </div>
+
+    <div class="notice" style="margin-top: 16px;">
+      <strong>Indexing Notice:</strong> Following publication, the proceedings may be submitted by the publisher to Clarivate for evaluation for possible coverage in the Web of Science Conference Proceedings Citation Index (CPCI). CPCI/Web of Science coverage is subject to independent evaluation and cannot be guaranteed by the conference organizer.
+    </div>
+
+    <div class="notice">
+      <strong>Key Dates:</strong>&nbsp;
+      Abstract: 15 Jan 2027 &nbsp;·&nbsp; Notification: 15 Feb 2027 &nbsp;·&nbsp; Full Paper: 15 Mar 2027 &nbsp;·&nbsp; Conference: 15–16 Apr 2027
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════ PAGE: REGISTRATION ══════════ -->
+<div class="page" id="page-registration">
+  <div class="section">
+    <div class="section-label">Fees</div>
+    <div class="section-title">Registration</div>
+    <div class="section-rule"></div>
+
+    <div class="text-content" style="margin-bottom:24px;">
+      <p>For each accepted paper, at least one author must register. One <strong>Student registration</strong> allows one paper presentation/publication. One <strong>Faculty registration</strong> allows two paper presentations/publications (both must be peer-review accepted).</p>
+      <p>Registration in the Author's category is mandatory for paper presentation and inclusion in the proceedings. Co-authors may register under the Co-Author/Attendee category.</p>
+    </div>
+
+    <table class="reg-table">
+      <thead>
+        <tr>
+          <th>Category</th>
+          <th>Student / Research Scholar</th>
+          <th>Faculty / Academician</th>
+          <th>Industry Professional</th>
+          <th>Co-Author / Attendee</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="highlight">Authors from India (INR)</td>
+          <td>₹ 10,500</td>
+          <td>₹ 12,000</td>
+          <td>₹ 12,000</td>
+          <td>₹ 2,000</td>
+        </tr>
+        <tr>
+          <td class="highlight">Authors from Outside India (USD)</td>
+          <td>$ 150</td>
+          <td>$ 200</td>
+          <td>$ 200</td>
+          <td>$ 65</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="early-note">
+      <strong>Early Bird Discount:</strong> Authors registering before the full paper deadline (15th March 2027) are eligible for a <strong>10% discount</strong> on the above registration fees.
+    </div>
+
+    <div class="notice" style="margin-top:24px;">
+      For registration queries, contact Dr. S. Kanaga Suba Raja at <strong>9486684400</strong> or <a href="mailto:Kanagasubaraja.s@ist.srmtrichy.edu.in" class="inline-link">Kanagasubaraja.s@ist.srmtrichy.edu.in</a>
+    </div>
+
+    <!-- REGISTRATION FORM -->
+    <div class="form-section">
+      <h3>Register Now</h3>
+      <p>Fill in the details below to register for ETCSIS 2027. All fields marked are required.</p>
+      <form id="registrationForm">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="reg-name">Full Name *</label>
+            <input type="text" id="reg-name" name="fullName" required placeholder="Enter your full name">
+          </div>
+          <div class="form-group">
+            <label for="reg-email">Email Address *</label>
+            <input type="email" id="reg-email" name="email" required placeholder="you@example.com">
+          </div>
+          <div class="form-group">
+            <label for="reg-phone">Phone Number *</label>
+            <input type="tel" id="reg-phone" name="phone" required placeholder="+91 XXXXXXXXXX">
+          </div>
+          <div class="form-group">
+            <label for="reg-affiliation">Institution / Organisation *</label>
+            <input type="text" id="reg-affiliation" name="affiliation" required placeholder="Your university or company">
+          </div>
+          <div class="form-group">
+            <label for="reg-category">Registration Category *</label>
+            <select id="reg-category" name="category" required>
+              <option value="" disabled selected>Select category</option>
+              <option value="Student / Research Scholar">Student / Research Scholar</option>
+              <option value="Faculty / Academician">Faculty / Academician</option>
+              <option value="Industry Professional">Industry Professional</option>
+              <option value="Co-Author / Attendee">Co-Author / Attendee</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="reg-country">Country *</label>
+            <select id="reg-country" name="country" required>
+              <option value="" disabled selected>Select country</option>
+              <option value="India">India</option>
+              <option value="Outside India">Outside India</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="reg-track">Preferred Track *</label>
+            <select id="reg-track" name="track" required>
+              <option value="" disabled selected>Select track</option>
+              <option value="Track 1 - AI and Machine Learning">Track 1 — AI and Machine Learning</option>
+              <option value="Track 2 - Data Science and Big Data">Track 2 — Data Science and Big Data</option>
+              <option value="Track 3 - Cybersecurity and Privacy">Track 3 — Cybersecurity and Privacy</option>
+              <option value="Track 4 - Cloud, Edge and Distributed Computing">Track 4 — Cloud, Edge and Distributed Computing</option>
+              <option value="Track 5 - IoT and Intelligent Systems">Track 5 — IoT and Intelligent Systems</option>
+              <option value="Track 6 - Software Engineering">Track 6 — Software Engineering</option>
+              <option value="Track 7 - Computer Networks">Track 7 — Computer Networks</option>
+              <option value="Track 8 - Blockchain and Web3">Track 8 — Blockchain and Web3</option>
+              <option value="Track 9 - Human-Centered Computing">Track 9 — Human-Centered Computing</option>
+              <option value="Track 10 - Quantum Computing">Track 10 — Quantum Computing</option>
+              <option value="Track 11 - Robotics and Autonomous Systems">Track 11 — Robotics and Autonomous Systems</option>
+              <option value="Track 12 - Sustainable and Green Computing">Track 12 — Sustainable and Green Computing</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="reg-paper">Paper Title</label>
+            <input type="text" id="reg-paper" name="paperTitle" placeholder="Title of your paper (if applicable)">
+          </div>
+        </div>
+        <button type="submit" class="btn-submit" id="reg-btn">Submit Registration</button>
+        <div id="reg-msg" class="form-msg"></div>
+      </form>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════ PAGE: CONTACT ══════════ -->
+<div class="page" id="page-contact">
+  <div class="section">
+    <div class="section-label">Get in Touch</div>
+    <div class="section-title">Contact Details</div>
+    <div class="section-rule"></div>
+
+    <div class="two-col">
+      <div>
+        <div class="contact-box">
+          <h3>Conference Organiser</h3>
+          <div class="contact-row">
+            <div class="contact-icon">👤</div>
+            <div>
+              <strong>Dr. S. Kanaga Suba Raja</strong><br>
+              Professor and Head<br>
+              Department of Computer Science and Engineering
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-icon">🏛</div>
+            <div>
+              SRM Institute of Science and Technology<br>
+              Tiruchirappalli, Tamil Nadu — 621105, India
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-icon">📞</div>
+            <div><a href="tel:+919486684400">+91 9486684400</a></div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-icon">📧</div>
+            <div><a href="mailto:Kanagasubaraja.s@ist.srmtrichy.edu.in">Kanagasubaraja.s@ist.srmtrichy.edu.in</a></div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-icon">🌐</div>
+            <div><a href="https://srm-hcis-stlasm.netlify.app/" target="_blank">https://srm-hcis-stlasm.netlify.app/</a></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="card" style="margin-bottom:16px;">
+          <h3>Venue</h3>
+          <p>SRM Institute of Science and Technology<br>Tiruchirappalli Campus<br>Tamil Nadu, India</p>
+          <p style="margin-top:8px;"><em>The conference is conducted in Hybrid Mode (Online &amp; Offline).</em></p>
+        </div>
+        <div class="card">
+          <h3>Article Submission</h3>
+          <p>Submit via the EasyChair conference management system. Submissions must be original, unpublished work not simultaneously under review elsewhere.</p>
+          <p style="margin-top:8px;">Paper format: Scholarly Publisher Template (available on the conference website).</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTACT FORM -->
+    <div class="form-section">
+      <h3>Send a Message</h3>
+      <p>Have a question about the conference? Fill in the form below and we'll get back to you.</p>
+      <form id="contactForm">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="ct-name">Your Name *</label>
+            <input type="text" id="ct-name" name="name" required placeholder="Enter your name">
+          </div>
+          <div class="form-group">
+            <label for="ct-email">Email Address *</label>
+            <input type="email" id="ct-email" name="email" required placeholder="you@example.com">
+          </div>
+          <div class="form-group full-width">
+            <label for="ct-subject">Subject *</label>
+            <input type="text" id="ct-subject" name="subject" required placeholder="What is this about?">
+          </div>
+          <div class="form-group full-width">
+            <label for="ct-message">Message *</label>
+            <textarea id="ct-message" name="message" required placeholder="Type your message here..."></textarea>
+          </div>
+        </div>
+        <button type="submit" class="btn-submit" id="ct-btn">Send Message</button>
+        <div id="ct-msg" class="form-msg"></div>
+      </form>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <strong>ETCSIS 2027</strong> · International Conference on Emerging Trends in Computer Science and Intelligent Systems for Next-Generation Computing<br>
+  <span style="font-size:12px;margin-top:6px;display:block;">15–16 April 2027 · SRM Institute of Science and Technology, Tiruchirappalli, Tamil Nadu, India</span>
+  <div class="foot-links">
+    <a href="#" onclick="showPage('home',document.querySelectorAll('nav a')[0])">Home</a>
+    <a href="#" onclick="showPage('about',document.querySelectorAll('nav a')[1])">About</a>
+    <a href="#" onclick="showPage('tracks',document.querySelectorAll('nav a')[2])">Tracks</a>
+    <a href="#" onclick="showPage('speakers',document.querySelectorAll('nav a')[3])">Speakers</a>
+    <a href="#" onclick="showPage('committee',document.querySelectorAll('nav a')[4])">Committee</a>
+    <a href="#" onclick="showPage('schedule',document.querySelectorAll('nav a')[5])">Schedule</a>
+    <a href="#" onclick="showPage('submission',document.querySelectorAll('nav a')[6])">Submission</a>
+    <a href="#" onclick="showPage('registration',document.querySelectorAll('nav a')[7])">Registration</a>
+    <a href="#" onclick="showPage('contact',document.querySelectorAll('nav a')[8])">Contact</a>
+  </div>
+</footer>
+
+<!-- Firebase SDK (CDN - Compat mode) -->
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+
+<script>
+  // ── PAGE NAVIGATION ──
+  function showPage(name, clickedLink) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    const target = document.getElementById('page-' + name);
+    if (target) target.classList.add('active');
+    document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+    if (clickedLink) clickedLink.classList.add('active');
+    window.scrollTo(0, 0);
+    return false;
+  }
+  document.querySelectorAll('nav a').forEach(a => {
+    a.addEventListener('click', function(e) { e.preventDefault(); });
+  });
+
+  // ── FIREBASE INITIALIZATION ──
+  const firebaseConfig = {
+    apiKey: "AIzaSyABlaI8x92z1HUAgRu5JJ0XIy19DBqlSfo",
+    authDomain: "srm-conference.firebaseapp.com",
+    projectId: "srm-conference",
+    storageBucket: "srm-conference.firebasestorage.app",
+    messagingSenderId: "534196023138",
+    appId: "1:534196023138:web:3df29065df9118e440063b"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+
+  // ── HELPER: Show form message ──
+  function showMsg(elementId, type, text) {
+    const el = document.getElementById(elementId);
+    el.className = 'form-msg ' + type;
+    el.textContent = text;
+    el.style.display = 'block';
+    // Auto-hide after 6 seconds
+    setTimeout(() => { el.style.display = 'none'; }, 6000);
+  }
+
+  // ── REGISTRATION FORM HANDLER ──
+  document.getElementById('registrationForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = document.getElementById('reg-btn');
+    btn.disabled = true;
+    btn.textContent = 'Submitting...';
+
+    try {
+      const data = {
+        fullName: document.getElementById('reg-name').value.trim(),
+        email: document.getElementById('reg-email').value.trim(),
+        phone: document.getElementById('reg-phone').value.trim(),
+        affiliation: document.getElementById('reg-affiliation').value.trim(),
+        category: document.getElementById('reg-category').value,
+        country: document.getElementById('reg-country').value,
+        track: document.getElementById('reg-track').value,
+        paperTitle: document.getElementById('reg-paper').value.trim(),
+        submittedAt: firebase.firestore.FieldValue.serverTimestamp(),
+        status: 'pending'
+      };
+
+      await db.collection('registrations').add(data);
+      showMsg('reg-msg', 'success', '✅ Registration submitted successfully! We will contact you shortly.');
+      this.reset();
+    } catch (error) {
+      console.error('Registration error:', error);
+      showMsg('reg-msg', 'error', '❌ Something went wrong. Please try again or contact us directly.');
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Submit Registration';
+    }
+  });
+
+  // ── CONTACT FORM HANDLER ──
+  document.getElementById('contactForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = document.getElementById('ct-btn');
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+
+    try {
+      const data = {
+        name: document.getElementById('ct-name').value.trim(),
+        email: document.getElementById('ct-email').value.trim(),
+        subject: document.getElementById('ct-subject').value.trim(),
+        message: document.getElementById('ct-message').value.trim(),
+        submittedAt: firebase.firestore.FieldValue.serverTimestamp(),
+        read: false
+      };
+
+      await db.collection('contacts').add(data);
+      showMsg('ct-msg', 'success', '✅ Message sent successfully! We will respond to your email shortly.');
+      this.reset();
+    } catch (error) {
+      console.error('Contact form error:', error);
+      showMsg('ct-msg', 'error', '❌ Failed to send message. Please try again or email us directly.');
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Send Message';
+    }
+  });
+</script>
+
+</body>
+</html>
