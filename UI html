@@ -47,13 +47,18 @@
     background: var(--white);
     border-bottom: 3px solid var(--srm-navy);
     padding: 18px 32px;
-    display: flex;
-    align-items: center;
-    gap: 24px;
     position: sticky;
     top: 0;
     z-index: 100;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+  .header-inner {
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 24px;
   }
 
 
@@ -120,7 +125,7 @@
   .hero {
     background:
       linear-gradient(135deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.60) 60%, rgba(0,0,0,0.70) 100%),
-      url('campus.png');
+      url('top-view.jpeg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -284,7 +289,7 @@
   @media (max-width: 700px) {
     .two-col { grid-template-columns: 1fr; }
     nav a { padding: 12px 12px; font-size: 12px; }
-    header { flex-wrap: wrap; }
+    .header-inner { flex-wrap: wrap; }
     .conf-badge { margin-left: 0; }
     .topbar { flex-direction: column; gap: 4px; }
   }
@@ -905,14 +910,16 @@
 
 <!-- HEADER -->
 <header>
-  <img src="logo.png" alt="SRM Logo" style="width:80px;height:80px;object-fit:contain;">
-  <div class="header-text">
-    <h1>SRM Institute of Science and Technology</h1>
-    <p>Department of Computer Science and Engineering · Tiruchirappalli Campus</p>
-  </div>
-  <div class="conf-badge">
-    <div class="abbr">ETCSIS 2027</div>
-    <div class="dates">15th &amp; 16th April 2027 · Hybrid Mode</div>
+  <div class="header-inner">
+    <img src="logo.png" alt="SRM Logo" style="width:80px;height:80px;object-fit:contain;">
+    <div class="header-text">
+      <h1>SRM Institute of Science and Technology</h1>
+      <p>Department of Computer Science and Engineering · Tiruchirappalli Campus</p>
+    </div>
+    <div class="conf-badge">
+      <div class="abbr">ETCSIS 2027</div>
+      <div class="dates">15th &amp; 16th April 2027 · Hybrid Mode</div>
+    </div>
   </div>
 </header>
 
@@ -1004,7 +1011,7 @@
       <div class="section-label">Overview</div>
       <div class="section-title">About the Conference</div>
       <div class="section-rule"></div>
-      <img src="campus-front.png" alt="SRM Campus Front View" class="section-img" style="margin-top:0; margin-bottom:24px;">
+      <img src="front-view.png" alt="SRM Campus Front View" class="section-img" style="margin-top:0; margin-bottom:24px;">
       <div class="two-col">
         <div class="text-content">
           <p>The conference is an international platform for researchers, academicians, industry professionals, research scholars and students to exchange knowledge and present innovative research in emerging areas of Computer Science and Intelligent Systems, focused on AI, Machine Learning, Generative AI, Data Science, Cybersecurity, Cloud and Edge Computing, IoT, Robotics, Quantum Computing, Software Engineering and next-generation computing paradigms.</p>
@@ -1051,7 +1058,7 @@
       <p>In NIRF 2025, SRMIST achieved the <strong>22nd rank Overall</strong> and <strong>11th among universities</strong> in India, reflecting its commitment to quality higher education and research excellence.</p>
       <p>With campuses in Kattankulathur (Chennai), Ramapuram, Vadapalani, Tiruchirappalli, Modinagar, Sonepat, Amaravati, and Gangtok, SRMIST has established itself as a nationally recognized centre of excellence. The university attracts students from across India and many countries, creating a vibrant multicultural environment.</p>
     </div>
-    <img src="campus-top-view.png" alt="SRM Tiruchirappalli Campus Aerial View" class="section-img">
+    <img src="top-view.jpeg" alt="SRM Tiruchirappalli Campus Aerial View" class="section-img">
     <p class="img-caption">Aerial view of SRM Institute of Science and Technology, Tiruchirappalli Campus</p>
   </div>
 
@@ -1065,8 +1072,8 @@
           <p>The Department of CSE at SRMIST Tiruchirappalli was established in 2021 with the vision of imparting quality education and fostering innovation in computing. It promotes research in Artificial Intelligence, Machine Learning, Data Science, Cyber Security, Cloud Computing, and the Internet of Things.</p>
           <p>The department collaborates with leading organizations through internships, workshops, expert talks, and industry-driven projects, bridging academia and industry effectively.</p>
           <div class="about-img-col" style="margin-top:16px;">
-            <img src="class-view.png" alt="Classroom and Lab Facilities">
-            <img src="campus-student.png" alt="Students at SRM Campus">
+            <img src="class-view.JPG" alt="Classroom and Lab Facilities">
+            <img src="student-view.JPG" alt="Students at SRM Campus">
           </div>
         </div>
         <div>
